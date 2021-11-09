@@ -1,0 +1,9 @@
+@use '../tools/' as *;
+
+nav {
+    @include flexJustAlign(space-between, center);
+    padding: 5% 0;
+    li {
+        cursor: pointer;
+    }
+}
