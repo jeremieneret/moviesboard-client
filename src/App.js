@@ -14,14 +14,16 @@ function App() {
   return (
     <Fragment>
       <Router>
-            <Navbar />
-            <MovieDetails />
-            <Switch>
-                <Route exact path='/AddMovie' component={AddMovie} />
-                <Route path='/MoviesList' component={MoviesList} />
-                <Route path='/MovieDetail/:id' component={MovieDetails} />
-                <Route exact path='/EditMovie' component={EditMovie} />
-            </Switch>
+        <Navbar />
+        <main className='ctnr'>
+        <MovieDetails />
+          <Switch>
+            <Route exact path='/AddMovie' component={AddMovie} />
+            <Route path='/MoviesList' component={MoviesList} />
+            <Route path='/MovieDetail/:id' component={MovieDetails} />
+            <Route exact path='/EditMovie' component={EditMovie} />
+          </Switch>
+        </main>
       </Router>
     </Fragment>
   );

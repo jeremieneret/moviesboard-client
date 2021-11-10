@@ -1,34 +1,24 @@
 @use "../tools/" as *;
 
 button {
-    margin: 0 auto;
+    margin: 0 0 0 2vw;
     font-family: inherit;
     background-image: 
-    linear-gradient(to bottom, rgba($primary-main, 0.8), rgba($primary-main, 0.2));
+    linear-gradient(to bottom, rgba($complementary, 1), rgba($complementary, 0.5));
     border: none;
     color: $white;
     font-weight: 900;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     transition: all 300ms ease;
 
-    &:hover,
-    &.win-background:hover {
-        background-image: 
+    &:hover {
+        background: 
         linear-gradient(to bottom, rgba($background, 1), rgba($background, 0.85));
-        border: solid 1px $primary-main;
-        color: $primary-main;
+        border: solid 1px $complementary;
+        color: $complementary;
         cursor: pointer;
     }
 
-    &.win-background {
-        background-image: 
-        linear-gradient(to bottom, rgba($complementary, 1), rgba($complementary, 0.8));
-        
-        &:hover {
-            border: solid 1px $complementary;
-            color: $complementary;
-        }
-    }
 }

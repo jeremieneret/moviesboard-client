@@ -5,9 +5,7 @@
 }
 
 body {
-    font-family: $montserrat;
     margin: 0;
-    letter-spacing: 0.1em;
     height: 100vh;
     background: $background;
     color: $text-scale;
@@ -15,24 +13,27 @@ body {
     -moz-osx-font-smoothing: grayscale;
     padding: 5%;
 
-    main {
-        display: flex;
-        flex-direction: column;
-        max-width: 625px;
+    main.ctnr {
+        margin-top: 208px;
+        @media (max-width: 650px) {
+            margin-top: 150px;
+        }
+    }
+
+    .ctnr {
+        max-width: 1440px;
         width: 100%;
         margin: 0 auto;
-        transform: translateY(calc(50vh - 50%));
-        padding: 24px;
     }
 }
 
 p span {
-    color: $primary-main;
+    color: $primary;
     font-weight: 900;
 }
 
 input {
-    background: rgba($color: aquamarine, $alpha: 0.5);
+    background: rgba($color: $complementary, $alpha: 0.5);
     padding: 15px 20px;
     border-radius: 50px;
     border: none;
@@ -43,21 +44,15 @@ input {
     }
 }
 
-.turns-and-matches {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transition: all 1s ease;
-    @media (max-width: 650px)  {
-        margin-top: 0;
+br.display {
+    @media (max-width: 480px) {
+        display: block;
     }
-    &.all-six-matches {
-        font-size: 2.2em;
-        @media (max-width: 650px)  {
-            font-size: 1.25em;
-        }
+    @media (min-width: 480px) {
+        display: none;
     }
 }
+
 
 
 

@@ -1,0 +1,64 @@
+@use "../tools/" as *;
+
+.movie-card-and-btns_ctnr {
+    width: 100%;
+    display: flex;
+    @media (max-width: 650px) {
+        flex-direction: column;
+    }
+    .movie-card,
+    .btns_ctnr {
+        height: 200px;
+    }
+    .movie-card {
+        cursor: pointer;
+        display: flex;
+        background: rgba($color: #ffffff, $alpha: 0.05);
+        border-radius: 20px;
+        @media (max-width: 650px) {
+            border-radius: 20px 20px 0 0;
+        }
+        img {
+            height: 100%;
+            border-radius: 20px 0 0 20px;
+            @media (max-width: 650px) {
+                border-radius: 20px 0 0 0;
+            }
+        }
+        h1.montserrat {
+            margin: 0;
+        }
+        .text {
+            padding: 16px;
+            @include flexDirJust(column, space-between);
+            .description {
+                overflow: hidden;
+                text-overflow: Ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 4;
+                @media (max-width: 550px) {
+                -webkit-line-clamp: 3;                   
+                }
+            }
+        }
+    }
+    .btns_ctnr {
+        @include flexDirJust(column, space-between);
+        @media (max-width: 650px) {
+            @include flexDirJust(row, space-between);
+            height: 70px;
+            button {
+                width: 50%;
+                height: 50px;
+                margin: 0;
+                &:nth-of-type(1) {
+                    border-radius: 0 0 0 20px;
+                }
+                &:nth-of-type(2) {
+                    border-radius: 0 0 20px 0;
+                }
+            }
+        }
+    }
+}

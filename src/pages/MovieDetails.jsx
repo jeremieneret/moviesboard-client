@@ -1,63 +1,91 @@
-//This little tool is going to help us to build a library of actors, to make the game more personalization and fun
-//We use the Search method of tmdb Api
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
+// import { useParams } from 'react-router-dom';
 import axios from 'axios';
+
+
 
 // const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=6d297bdaca2dc66c4fe66393850480f4&language=fr&query=${movieTitle}&page=1&include_adult=false`;
 
 
 function MovieDetails() {
-
-
-
-
     const [data, setData] = useState([]);
+    const [date, setDate] = useState('');
+    // const { id } = useParams();
 
-    //we use useEffect to fetch datas from the api and set the result in the 'data' array
+
     useEffect(() => {
         const fetchData = () => {
-            axios.get('http://localhost:3000/movies')
+            axios.get(`http://localhost:3000/movies/1`)
                 .then(response => {
                     setData(response.data)
+                    setDate(response.data.release_date)
                 })
         }
         fetchData();
     }, [])
-    console.log(data);
+
+    // console.log(data.release_date);
+
+    //let's convert date into a convenient format
+    const [year, month, day] = date.split('-')
+
+
+    console.log(`${day}/${month}/${year}`)
     return (
-        <div>
+        <Fragment>
+            {data &&
+                <div className='movie-details'>
+
+                    <div className="backdrop_ctnr">
+                        <img className='backdrop' src={data.backdrop} alt="backdrop" />
+                    </div>
+
+                    <h1 className='title'>{data.title}</h1>
+
+                    <div className="three-panels-layout">
+                        <div className="left-panel">
+                            {data.categories?.map(category => {
+                                return <ul>
+                                    <li><p className='categories'>#{category}</p></li>
+                                </ul>
+                            })}
+
+                            <br />
+                            <p>Release date: {day}/{month}/{year}</p>
+                            <br />
+                            <p>{data.description}</p>
+                        </div>
 
 
-            <img src={data[0]?.poster} alt="poster" />
-            <img src={data[0]?.backdrop} alt="backdrop" />
-            <h1>{data[0]?.title}</h1>
-            <p>{data[0]?.categories}</p>
-            <p>{data[0]?.description}</p>
-            <h2>avec :</h2>
-            {
-                data.map(dat => {
-                    return dat.actors.map((actor) => {
-                        return <ul>
-                            <li>{actor.name} as {actor.character}</li>
-                            <img src={actor.photo} alt="portraits of actors" />
-                        </ul>
-                    })
-                })
+                        <div className="center-panel">
+                            <img src={data.poster} alt="poster" />
+                        </div>
+
+                        <div className="right-panel">
+                            {data.actors?.map((actor) => {
+                                return <ul>
+                                    <li><img src={actor.photo} alt="actor portait" /></li>
+                                    <li>{actor.name}</li>
+                                </ul>
+                            })}
+                        </div>
+                    </div>
+
+                    <div className="similar-movies_ctnr">
+                        <h2>In the same categories, there are also:</h2>
+                        <div className='similar-movies'>
+                            {data.similar_movies?.map((similar_movie) => {
+                                return <ul>
+                                    <li>{similar_movie.title}</li>
+                                    <li><img src={similar_movie.poster} alt="movie poster" /></li>
+                                </ul>
+                            })}
+                        </div>
+                    </div>
+                </div>
             }
-            {
-                data.map(dat => {
-                    return dat.similar_movies.map((similarMovie) => {
-                        return <ul>
-                            <li>{similarMovie.title}</li>
-                            <img src={similarMovie.poster} alt="poster" />
-                            <li>{similarMovie.release_date}</li>
-                        </ul>
-                    })
-                })
-            }
+        </Fragment>
 
-        </div>
     )
 
 };
