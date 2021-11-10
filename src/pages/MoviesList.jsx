@@ -28,7 +28,7 @@ const MoviesList = () => {
                         return (
                             <li
                                 key={i}
-                                onClick={() => {history.push('/MovieDetails')}}
+                                onClick={() => {history.push(`/MovieDetails/${movie.id}`)}}
                             >
                                 <MovieCard
                                     movie={{

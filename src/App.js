@@ -16,11 +16,10 @@ function App() {
       <Router>
         <Navbar />
         <main className='ctnr'>
-        <MovieDetails />
           <Switch>
             <Route exact path='/AddMovie' component={AddMovie} />
             <Route path='/MoviesList' component={MoviesList} />
-            <Route path='/MovieDetail/:id' component={MovieDetails} />
+            <Route path='/MovieDetails/:id' component={MovieDetails} />
             <Route exact path='/EditMovie' component={EditMovie} />
           </Switch>
         </main>

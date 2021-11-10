@@ -87,6 +87,9 @@
             font-family: $montserrat;
             text-transform: uppercase;
             text-align: center;
+            li {
+                margin-bottom: 8px;
+            }
         }
     }
 }

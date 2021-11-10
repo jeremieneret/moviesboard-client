@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react';
-// import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -10,12 +10,11 @@ import axios from 'axios';
 function MovieDetails() {
     const [data, setData] = useState([]);
     const [date, setDate] = useState('');
-    // const { id } = useParams();
-
+    const { id } = useParams();
 
     useEffect(() => {
         const fetchData = () => {
-            axios.get(`http://localhost:3000/movies/1`)
+            axios.get(`http://localhost:3000/movies/${id}`)
                 .then(response => {
                     setData(response.data)
                     setDate(response.data.release_date)

@@ -30,28 +30,6 @@ const MovieCard = ({ movie }) => {
                         </div>
                     </div>
 
-                    {/* {
-                        data?.map(dat => {
-                            return dat.actors.map((actor) => {
-                                return <ul>
-                                    <li>{actor.name} as {actor.character}</li>
-                                    <img src={actor.photo} alt="portraits of actors" />
-                                </ul>
-                            })
-                        })
-                    }
-                    {
-                        data.map(dat => {
-                            return dat.similar_movies.map((similarMovie) => {
-                                return <ul>
-                                    <li>{similarMovie.title}</li>
-                                    <img src={similarMovie.poster} alt="poster" />
-                                    <li>{similarMovie.release_date}</li>
-                                </ul>
-                            })
-                        })
-                    } */}
-
                     <div className="btns_ctnr">
                         <button>delete</button>
                         <button>edit</button>

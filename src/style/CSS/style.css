@@ -564,6 +564,9 @@ button:hover {
   text-transform: uppercase;
   text-align: center;
 }
+.movie-details .similar-movies ul li {
+  margin-bottom: 8px;
+}
 
 nav {
   position: fixed;
