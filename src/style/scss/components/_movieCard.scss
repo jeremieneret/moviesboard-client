@@ -15,8 +15,12 @@
         display: flex;
         background: rgba($color: #ffffff, $alpha: 0.05);
         border-radius: 20px;
+        width: 90%;
+        margin-bottom: 32px;
         @media (max-width: 650px) {
             border-radius: 20px 20px 0 0;
+            width: 100%;
+            margin: 0;
         }
         img {
             height: 100%;
@@ -44,7 +48,7 @@
         }
     }
     .btns_ctnr {
-        @include flexDirJust(column, space-between);
+        @include flexDirJust(column, space-around);
         @media (max-width: 650px) {
             @include flexDirJust(row, space-between);
             height: 70px;

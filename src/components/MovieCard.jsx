@@ -16,10 +16,10 @@ const MovieCard = ({ movie }) => {
     }, [])
 
     return (
-        <div>
-            {data?.map(movie => {
+        <ul>
+            {data?.map((movie, i) => {
 
-                return <div className='movie-card-and-btns_ctnr'>
+                return <li key={i} className='movie-card-and-btns_ctnr'>
 
                     <div className="movie-card">
                         <img src={movie.poster} alt="poster" />
@@ -34,10 +34,10 @@ const MovieCard = ({ movie }) => {
                         <button>delete</button>
                         <button>edit</button>
                     </div>
-                </div>
+                </li>
 
             })}
-        </div>
+        </ul>
     )
 }
 

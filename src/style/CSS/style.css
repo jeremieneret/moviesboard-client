@@ -84,7 +84,6 @@ body {
 }
 
 h1:not(h1.logo) {
-  font-size: 2.8em;
   font-family: "Montserrat", sans-serif;
   text-transform: uppercase;
   font-weight: normal;
@@ -342,6 +341,9 @@ body .ctnr {
   width: 100%;
   margin: 0 auto;
 }
+body .w100 {
+  width: 100%;
+}
 
 p span {
   color: #59BDCA;
@@ -414,10 +416,14 @@ button:hover {
   display: flex;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
+  width: 90%;
+  margin-bottom: 32px;
 }
 @media (max-width: 650px) {
   .movie-card-and-btns_ctnr .movie-card {
     border-radius: 20px 20px 0 0;
+    width: 100%;
+    margin: 0;
   }
 }
 .movie-card-and-btns_ctnr .movie-card img {
@@ -453,7 +459,7 @@ button:hover {
 .movie-card-and-btns_ctnr .btns_ctnr {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 @media (max-width: 650px) {
   .movie-card-and-btns_ctnr .btns_ctnr {
@@ -522,7 +528,7 @@ button:hover {
 }
 .movie-details .three-panels-layout .center-panel {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   width: 38%;
 }
 .movie-details .three-panels-layout .center-panel img {

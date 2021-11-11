@@ -6,6 +6,7 @@ import EditMovie from './pages/EditMovie';
 import MovieDetails from './pages/MovieDetails';
 import MoviesList from './pages/MoviesList';
 import Navbar from './components/Navbar';
+import SearchMovie from './components/SearchMovie';
 import './style/CSS/style.css'
 
 
@@ -16,6 +17,7 @@ function App() {
       <Router>
         <Navbar />
         <main className='ctnr'>
+        <SearchMovie />
           <Switch>
             <Route exact path='/AddMovie' component={AddMovie} />
             <Route path='/MoviesList' component={MoviesList} />

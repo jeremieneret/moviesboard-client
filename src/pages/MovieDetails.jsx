@@ -21,9 +21,9 @@ function MovieDetails() {
                 })
         }
         fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
-    // console.log(data.release_date);
 
     //let's convert date into a convenient format
     const [year, month, day] = date.split('-')
@@ -43,9 +43,9 @@ function MovieDetails() {
 
                     <div className="three-panels-layout">
                         <div className="left-panel">
-                            {data.categories?.map(category => {
+                            {data.categories?.map((category, i) => {
                                 return <ul>
-                                    <li><p className='categories'>#{category}</p></li>
+                                    <li key={i}><p className='categories'>#{category}</p></li>
                                 </ul>
                             })}
 
