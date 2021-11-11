@@ -6,15 +6,16 @@ import axios from 'axios';
 
 const SearchMovie = () => {
 
-    const [searchInputText, setSearchInputText] = useState('');
+    const [searchByTitle, setSearchByTitle] = useState('');
+    const [searchByReleaseYear, setSearchByReleaseYear] = useState('');
     const [data, setData] = useState('');
 
     useEffect(() => {
 
         const onSearchMovie = async () => {
-            if (searchInputText) {
+            if (searchByTitle) {
                 const result = await axios(
-                    `https://api.themoviedb.org/3/search/movie?api_key=6d297bdaca2dc66c4fe66393850480f4&language=fr&query=${searchInputText}&page=1&include_adult=false`
+                    `https://api.themoviedb.org/3/search/movie?api_key=6d297bdaca2dc66c4fe66393850480f4&language=fr&query=${searchByTitle}&page=1&include_adult=false&primary_release_year=${searchByReleaseYear}`
                 );
                 setData(result.data.results);
             }
@@ -28,30 +29,35 @@ const SearchMovie = () => {
             console.log(data[0].title);
         }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [searchInputText])
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [searchByTitle])
 
     return (
         <Fragment>
-            <main>
-                <input
-                    className='search-input'
-                    onChange={e => setSearchInputText(e.target.value)}
-                    value={searchInputText}
-                    type='text'
-                    placeholder="what is the title of our new movie?"
-                />
-                {data && data.length !== 0 && <ul>
-                    {data?.map((dat, i) => {
-                        return (
-                            <li key={i}>
-                                <p>{dat.title}</p>
-                                <p>{dat.release_date}</p>
-                            </li>
-                        )
-                    })}
-                </ul>}
-            </main>
+            <input
+                className='search-input'
+                onChange={e => setSearchByTitle(e.target.value)}
+                value={searchByTitle}
+                type='text'
+                placeholder="what's its title? you can type here..."
+            />
+            <input
+                className='search-input'
+                onChange={e => setSearchByReleaseYear(e.target.value)}
+                value={searchByReleaseYear}
+                type='text'
+                placeholder="you can precise the year of its release here!"
+            />
+            {data && data.length !== 0 && <ul>
+                {data?.map((dat, i) => {
+                    return (
+                        <li className='movie-result' key={i}>
+                            <p>{dat.title}</p>
+                            <p>{dat.release_date}</p>
+                        </li>
+                    )
+                })}
+            </ul>}
         </Fragment>
     )
 }

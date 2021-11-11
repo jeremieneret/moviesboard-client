@@ -1,0 +1,12 @@
+@use "../tools/" as *;
+
+input.search-input {
+    margin-bottom: 12px;
+}
+li.movie-result {
+    @include flexJustAlign(space-between, center);
+    padding: 12px 16px;
+    background: $primary;
+    border-radius: 50px;
+    margin-bottom: 12px;
+}

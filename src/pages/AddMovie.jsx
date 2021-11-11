@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import SearchMovie from '../components/SearchMovie';
 
 const AddMovie = () => {
     const [data, setData] = useState([]);
@@ -39,7 +40,7 @@ const AddMovie = () => {
     return (
         <div>
             <h1 className='title'>add a movie, darling!</h1>
-            <input type="text" placeholder="what's its title? you can type here" />
+            <SearchMovie />
             <button onClick={addData}>Test me!</button>
         </div>
     )
