@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios';
 import SearchMovie from '../components/SearchMovie';
 
 const AddMovie = () => {
+
+    // eslint-disable-next-line no-unused-vars
     const [data, setData] = useState([]);
 
     const addData = () => {
@@ -33,12 +35,10 @@ const AddMovie = () => {
                 console.log(error);
             });
     }
-    useEffect(() => {
 
-    }, [])
-    console.log(data);
+
     return (
-        <div>
+        <div className='add-movie'>
             <h1 className='title'>add a movie, darling!</h1>
             <SearchMovie />
             <button onClick={addData}>Test me!</button>

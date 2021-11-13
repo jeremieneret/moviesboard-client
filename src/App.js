@@ -8,6 +8,8 @@ import MoviesList from './pages/MoviesList';
 import Navbar from './components/Navbar';
 import './style/CSS/style.css'
 
+import Test from './Test';
+
 
 function App() {
 
@@ -16,6 +18,7 @@ function App() {
       <Router>
         <Navbar />
         <main className='ctnr'>
+          <Test />
           <Switch>
             <Route exact path='/AddMovie' component={AddMovie} />
             <Route path='/MoviesList' component={MoviesList} />

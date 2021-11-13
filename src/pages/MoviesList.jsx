@@ -20,7 +20,7 @@ const MoviesList = () => {
     }, [])
 
     return (
-        <div>
+        <div className='movie-list'>
             <h1 className='title'>what a big and impressive library you <br className='display'/>got!</h1>
             {data && data.length !== 0 &&
                 <ul>

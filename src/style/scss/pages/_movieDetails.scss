@@ -1,9 +1,10 @@
 @use "../tools/" as *;
 
 .movie-details {
+    padding: 3vh 0;
     .backdrop_ctnr {
         position: fixed;
-        top: 200px;
+        top: 150px;
         left: 0;
         width: 100%;
         &::before {
