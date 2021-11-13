@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 
@@ -19,7 +19,23 @@ const AddMovieForm = () => {
 
     if (!movie) return <p>No movie</p>;
 
-    return <div>{movie.title}</div>;
+    return (
+        <div>
+            <p>
+                {movie.title}
+            </p>
+            <p>
+                {movie.release_date}
+            </p>
+            <p>
+                {movie.overview}
+            </p>
+            <p>
+                {movie.poster_path}
+            </p>
+            <img src={movie.poster_path} alt='movie cover'/>
+        </div>
+    )
 };
 
 export default AddMovieForm
