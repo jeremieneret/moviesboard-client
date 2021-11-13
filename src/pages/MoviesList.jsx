@@ -32,9 +32,12 @@ const MoviesList = () => {
                             >
                                 <MovieCard
                                     movie={{
-                                        i: i,
+                                        i: movie.i,
                                         id: movie.id,
                                         title: movie.title,
+                                        poster: movie.poster,
+                                        release_date: movie.release_date,
+                                        description: movie.description
                                     }}
                                 ></MovieCard>
                             </li>

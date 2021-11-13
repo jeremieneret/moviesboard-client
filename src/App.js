@@ -22,7 +22,7 @@ const MoviePage = () => {
 
   useEffect(() => {
     const fetchMovie = async () => {
-      const result = await axios(
+      const result = await axios.get(
         `https://api.themoviedb.org/3/movie/${id}?api_key=6d297bdaca2dc66c4fe66393850480f4&language=fr`
       );
       setMovie(result.data);
