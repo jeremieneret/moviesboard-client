@@ -1,22 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 
 const MovieCard = ({ movie }) => {
-    // const [data, setData] = useState([]);
-
-    // //we use useEffect to fetch datas from the api and set the result in the 'data' array
-    // useEffect(() => {
-    //     const fetchData = () => {
-    //         axios.get('http://localhost:3000/movies')
-    //             .then(response => {
-    //                 setData(response.data)
-    //             })
-    //     }
-    //     fetchData();
-    // }, [])
 
     return (
-
         <div className='movie-card-and-btns_ctnr'>
 
             <div className="movie-card">
@@ -32,10 +18,8 @@ const MovieCard = ({ movie }) => {
                 <button>delete</button>
                 <button>edit</button>
             </div>
+
         </div>
-
-
-
     )
 }
 

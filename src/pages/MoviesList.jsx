@@ -8,7 +8,6 @@ const MoviesList = () => {
     const [data, setData] = useState([]);
     const history = useHistory();
 
-    //we use useEffect to fetch datas from the api and set the result in the 'data' array
     useEffect(() => {
         const fetchData = () => {
             axios.get('http://localhost:3000/movies')
