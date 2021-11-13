@@ -6,18 +6,6 @@ const SearchMovie = () => {
   const [searchByTitle, setSearchByTitle] = useState("");
   const [searchByReleaseYear, setSearchByReleaseYear] = useState("");
   const [data, setData] = useState("");
-  const [targetId, setTargetId] = useState(null);
-  const [selectedMovie, setSelectedMovie] = useState(null);
-
-  const addData = (e) => {
-    setTargetId(e.target.id);
-    console.log(targetId);
-    // .then(async (targetId) => {
-    //     await axios(
-    //         `https://api.themoviedb.org/3/search/movie?api_key=6d297bdaca2dc66c4fe66393850480f4&language=fr&query=${targetId}&page=1&include_adult=false&primary_release_year=${searchByReleaseYear}`
-    //     );
-    // })
-  };
 
   useEffect(() => {
     const onSearchMovie = async () => {
@@ -34,19 +22,6 @@ const SearchMovie = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchByTitle]);
 
-  useEffect(() => {
-    const abracadabra = async () => {
-      if (targetId) {
-        await axios(
-          `https://api.themoviedb.org/3/search/movie?api_key=6d297bdaca2dc66c4fe66393850480f4&language=fr&query=${targetId}&page=1&include_adult=false&primary_release_year=${searchByReleaseYear}`
-        );
-        setSelectedMovie(data);
-        console.log(selectedMovie);
-      }
-    };
-    abracadabra();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [targetId]);
 
   return (
     <Fragment>
@@ -69,12 +44,11 @@ const SearchMovie = () => {
           {data?.map((dat, i) => {
             console.log(dat);
             return (
-              <Link to={`/movie/${dat.id}`}>
+              <Link to={`/add-movie-form/${dat.id}`}>
                 <li
                   className="movie-result"
                   key={i}
                   id={dat.id}
-                  //   onClick={addData}
                 >
                   <p>{dat.title}</p>
                   <p>{dat.release_date}</p>
@@ -84,8 +58,6 @@ const SearchMovie = () => {
           })}
         </ul>
       )}
-      {/* {targetId &&
-            <p>{targetId}</p>} */}
     </Fragment>
   );
 };
