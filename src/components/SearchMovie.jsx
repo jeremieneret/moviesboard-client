@@ -1,19 +1,19 @@
 import { Fragment, React, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { TMDB_BASE_API, REACT_APP_TMDB_API_KEY } from "../utils/api";
 
 const SearchMovie = () => {
   const [searchByTitle, setSearchByTitle] = useState("");
   const [searchByReleaseYear, setSearchByReleaseYear] = useState("");
   const [data, setData] = useState("");
-  const TMDB_BASE_API = "https://api.themoviedb.org/3/"
-  const REACT_APP_TMDB_API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+
 
   useEffect(() => {
     const onSearchMovie = async () => {
       if (searchByTitle) {
         const result = await axios(
-          `${TMDB_BASE_API}search/movie?api_key=${REACT_APP_TMDB_API_KEY}&language=fr&query=${searchByTitle}&page=1&include_adult=false&primary_release_year=${searchByReleaseYear}`
+          `${TMDB_BASE_API}/search/movie?api_key=${REACT_APP_TMDB_API_KEY}&language=fr&query=${searchByTitle}&page=1&include_adult=false&primary_release_year=${searchByReleaseYear}`
         );
         setData(result.data.results);
       } else {
