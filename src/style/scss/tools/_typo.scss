@@ -1,8 +1,10 @@
 @use "colors" as *;
 @use "fonts" as *;
 
-body {
-    font-family: $esteban;
+body,
+*::placeholder {
+    font-family: $mulish;
+    color: white;
 }
 
 h1 {
@@ -33,7 +35,7 @@ h1 {
 }
 
 h1.title {
-    margin: 3vh 0 6vh 0;
+    margin: 3vh 0 5vh 0;
 }
 
 nav li {
@@ -50,4 +52,9 @@ nav li {
 .movie-details p {
     line-height: 160%;
     font-size: 20px;
+}
+
+label {
+    font-size: 20px;
+    color: $primary;
 }

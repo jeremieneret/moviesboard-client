@@ -7,7 +7,7 @@ const AddMovie = () => {
     // eslint-disable-next-line no-unused-vars
     const [data, setData] = useState([]);
 
-    const addData = () => {
+    const addDataTest = () => {
         axios.post('http://localhost:3000/movies', {
             title: 'La Soupe',
             release_date: '2022-12-06',
@@ -29,10 +29,10 @@ const AddMovie = () => {
         })
             .then(function (response) {
                 setData(response.data)
-                console.log(response.data);
             })
             .catch(function (error) {
                 console.log(error);
+                return <p>Désolé, une erreur s'est glissée quelque part</p>
             });
     }
 
@@ -41,7 +41,7 @@ const AddMovie = () => {
         <div className='add-movie'>
             <h1 className='title'>add a movie, darling!</h1>
             <SearchMovie />
-            <button onClick={addData}>Test me!</button>
+            {/* <button onClick={addDataTest}>Test me!</button> */}
         </div>
     )
 }

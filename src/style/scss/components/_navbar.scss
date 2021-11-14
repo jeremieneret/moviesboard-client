@@ -10,6 +10,7 @@ nav {
         url("https://images.unsplash.com/photo-1594909122845-11baa439b7bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3456&q=80");
     background-size: cover;
     background-position-y: center;
+    z-index: 2;
 
     .ctnr {
         @include flexJustAlign(space-between, center);

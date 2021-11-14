@@ -6,6 +6,7 @@ import MovieCard from '../components/MovieCard';
 
 const MoviesList = () => {
     const [data, setData] = useState([]);
+    // const [reversedData, setReversedData] = useState([]);
     const history = useHistory();
 
     useEffect(() => {
@@ -14,20 +15,22 @@ const MoviesList = () => {
                 .then(response => {
                     setData(response.data)
                 })
+            // setReversedData(data.reverse())
         }
         fetchData();
+
     }, [])
 
     return (
         <div className='movie-list'>
-            <h1 className='title'>what a big and impressive library you <br className='display'/>got!</h1>
+            <h1 className='title'>what a big and impressive library you <br className='display' />got!</h1>
             {data && data.length !== 0 &&
                 <ul>
                     {data?.map((movie, i) => {
                         return (
                             <li
                                 key={i}
-                                onClick={() => {history.push(`/movie-details/${movie.id}`)}}
+                                onClick={() => { history.push(`/movie-details/${movie.id}`) }}
                             >
                                 <MovieCard
                                     movie={{

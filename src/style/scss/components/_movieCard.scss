@@ -2,7 +2,7 @@
 
 .movie-card-and-btns_ctnr {
     width: 100%;
-    display: flex;
+    @include flexJust(space-between);
     @media (max-width: 650px) {
         flex-direction: column;
     }
@@ -49,10 +49,16 @@
     }
     .btns_ctnr {
         @include flexDirJust(column, space-around);
+        button.movie-card-btn {
+            width: 70px;
+            height: 70px;
+            padding: 0;
+            font-size: 12px;
+        }
         @media (max-width: 650px) {
             @include flexDirJust(row, space-between);
             height: 70px;
-            button {
+            button.movie-card-btn {
                 width: 50%;
                 height: 50px;
                 margin: 0;

@@ -8,7 +8,6 @@ function MovieDetails() {
   const [data, setData] = useState([]);
   const [date, setDate] = useState("");
   const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     const fetchData = () => {
@@ -24,7 +23,7 @@ function MovieDetails() {
   //let's convert date into a convenient format
   const [year, month, day] = date.split("-");
 
-  console.log(`${day}/${month}/${year}`);
+
   return (
     <Fragment>
       {data && (
