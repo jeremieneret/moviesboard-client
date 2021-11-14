@@ -9,10 +9,10 @@ const Navbar = () => {
                 <h1 className="logo">My Movies<br />Collection</h1>
                 <ul>
                     <li onClick={() => { history.push('/movies-list') }}>
-                        Movies List
+                        Mes films
                     </li>
                     <li onClick={() => { history.push('/add-a-movie') }}>
-                        Add a movie ?
+                        Ajouter un film ?
                     </li>
                 </ul>
             </div>

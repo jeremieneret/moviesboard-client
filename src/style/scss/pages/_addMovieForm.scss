@@ -21,7 +21,7 @@
         width: 100%;
         margin: 0 auto;
         padding: 32px;
-        background: rgba($color: #fff, $alpha: 0.1);
+        background: rgba($color: black, $alpha: 0.2);
         border-radius: 20px;
         input,
         textaera {
@@ -58,8 +58,9 @@
             .three-similar-movies {
                 @include flexJustAlign(space-between, center);
                 width: 100%;
+                margin-top: 12px;
                 .similar-movie {
-                    background: $complementary;
+                    background: rgba($color: #fff, $alpha: 0.1);
                     border-radius: 15px;
                     width: 32%;
                     img {

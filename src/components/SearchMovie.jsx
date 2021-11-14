@@ -33,7 +33,7 @@ const SearchMovie = () => {
         onChange={(e) => setSearchByTitle(e.target.value)}
         value={searchByTitle}
         type="text"
-        placeholder="what's its title? you can type here..."
+        placeholder="Quel est son titre ? Vous pouvez taper ici..."
       />
       <input
         className="search-input"

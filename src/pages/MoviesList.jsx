@@ -6,19 +6,19 @@ import MovieCard from '../components/MovieCard';
 
 const MoviesList = () => {
     const [data, setData] = useState([]);
-    // const [reversedData, setReversedData] = useState([]);
     const history = useHistory();
 
     useEffect(() => {
         const fetchData = () => {
             axios.get('http://localhost:3000/movies')
                 .then(response => {
-                    setData(response.data)
+                    setData(response.data.reverse())
                 })
-            // setReversedData(data.reverse())
+
         }
         fetchData();
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

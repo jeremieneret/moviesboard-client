@@ -6,11 +6,23 @@ input.search-input {
     font-size: 18px;
 }
 ul.movie-results {
-    margin-top: 32px;
+    margin: 32px 0 120px 0;
     display: grid;
     grid-template-columns: 18% 18% 18% 18% 18%;
     column-gap: 2.4%;
     row-gap: 2%;
+    @media (max-width: 950px) {
+        grid-template-columns: 23% 23% 23% 23%;
+    }
+    @media (max-width: 750px) {
+        grid-template-columns: 31% 31% 31%;
+        column-gap: 3.3%;
+    }
+    @media (max-width: 550px) {
+        grid-template-columns: 48% 48%;
+        column-gap: 4%;
+        row-gap: 24px;
+    }
     li.movie-result {
         background: rgba($color: #fff, $alpha: 0.1);
         border-radius: 15px;
