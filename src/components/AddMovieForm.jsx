@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
@@ -9,7 +10,6 @@ const AddMovieForm = () => {
     const [movie, setMovie] = useState([]);
     const [similarMovies, setSimilarMovies] = useState([]);
     const [casting, setCasting] = useState([]);
-    // eslint-disable-next-line no-unused-vars
     const [data, setData] = useState([]);
     const [date, setDate] = useState('');
     const [movieTitle, setMovieTitle] = useState('');
@@ -24,7 +24,6 @@ const AddMovieForm = () => {
 
             setMovie(result.data);
             setDate(result.data.release_date)
-            console.log(result.data);
         };
         fetchMovie();
     }, [id]);
@@ -54,7 +53,7 @@ const AddMovieForm = () => {
         axios.post('http://localhost:3000/movies', {
             title: movieTitle ? movieTitle : movie.title,
             release_date: movieReleaseDate ? movieReleaseDate : movie.release_date,
-            categories: [categories ? categories : movie.overview],
+            categories: [movie.genres ? movie.genres[0].name : ''],
             description: movieDescription ? movieDescription : movie.overview,
             poster: TMDB_IMG_URL_SUFFIX + movie.poster_path,
             backdrop: TMDB_IMG_URL_SUFFIX + movie.backdrop_path,

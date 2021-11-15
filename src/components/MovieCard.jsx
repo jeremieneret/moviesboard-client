@@ -2,6 +2,7 @@ import React from 'react';
 
 const MovieCard = ({ movie }) => {
 
+
     return (
         <div className='movie-card-and-btns_ctnr'>
 

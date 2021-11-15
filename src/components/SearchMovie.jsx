@@ -15,7 +15,6 @@ const SearchMovie = () => {
           `${TMDB_BASE_API}/search/movie?api_key=${REACT_APP_TMDB_API_KEY}&language=fr&query=${searchByTitle}&page=1&include_adult=false`
         );
         setData(result.data.results);
-        console.log(data);
       } else {
         setData(null);
       }
