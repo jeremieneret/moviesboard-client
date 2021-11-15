@@ -23,7 +23,7 @@ const MoviesList = () => {
 
     return (
         <div className='movie-list'>
-            <h1 className='title'>what a big and impressive library you <br className='display' />got!</h1>
+            <h1 className='title'>Quelle belle collection de films vous avez là !</h1>
             {data && data.length !== 0 &&
                 <ul>
                     {data?.map((movie, i) => {

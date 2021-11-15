@@ -1,28 +1,62 @@
-@use "../tools/" as *;
+@use "../tools" as *;
 
 .navbar {
-    position: fixed;
-    padding: 5vh 5%;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)),
-        url("https://images.unsplash.com/photo-1594909122845-11baa439b7bf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3456&q=80");
-    background-size: cover;
-    background-position-y: center;
-    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 3% 0;
+    background: linear-gradient(90deg, rgba(255, 245, 110, 0.8) 50%, rgba(231, 90, 121, 0.7) 100%);
+    @include shadowNavbar;
+    margin-bottom: 7vh;
+    border-radius: 0 0 60px 0;
+    @include media-max($tablet-m) {
+        margin-bottom: 3vh;
+        border-radius: 0;
+        padding: 6% 0;
+    }
+    @include media-min($mobile-m) {
+        width: 100vw;
+    }
+    .nav-content {
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-    .ctnr {
-        @include flexJustAlign(space-between, center);
-        li {
-            cursor: pointer;
-            transition: all 300ms ease;
-            &:hover {
-                transform: scale(1.15);
+        h1 {
+            white-space: nowrap;
+            font-family: $montserrat;
+            color: $text-scale4;
+            font-size: 60px;
+            font-weight: 500;
+            @include media-max($tablet-m) {
+                font-size: 35px;
+            }
+            @include media-max($mobile-m) {
+                font-size: 20px;
             }
         }
+
         nav {
-            @media (max-width: 650px) {
+            ul {
+                display: flex;
+                li {
+                    margin-left: 30px;
+                    button {
+                        font-size: large;
+                        font-weight: 700;
+                        font-family: $lato;
+                        transition: transform 0.3s;
+                        color: $text-scale2;
+                        @include media-min($tablet-m) {
+                            color: white;
+                        }
+                        &:hover {
+                            transform: scale(1.1);
+                        }
+                    }
+                }
+            }
+            @include media-max($tablet-m) {
                 display: none;
             }
             &.open {
@@ -32,26 +66,24 @@
                     top: 0;
                     left: 0;
                     width: 100%;
-                    height: 100%;
-                    @include flexDirJust(column, space-around);
-                    padding: 7%;
-                    background: rgba($color: #ffffff, $alpha: 0.95);
-                    animation: fromTheLeft 0.6s ease-in;
-                    z-index: 3;
 
+                    display: block;
+                    padding: 7%;
+                    background: rgba($color: #ffffff, $alpha: 0.85);
+                    animation: fromTheTop 0.3s ease;
+                    z-index: 3;
                     li {
                         margin: 0;
-                        color: $background;
-                        font-size: 20px;
                         button {
                             font-size: 40px;
                             font-style: italic;
                             font-family: $montserrat;
+
                         }
                     }
                 }
             }
-            @media (max-width: 650px) {
+            @include media-min($tablet-m) {
                 .mobile {
                     display: none;
                 }
@@ -59,7 +91,7 @@
                     display: flex;
                 }
             }
-            @media (min-width: 650px) {
+            @include media-max($tablet-m) {
                 .mobile {
                     display: block;
                 }
@@ -70,7 +102,7 @@
         }
 
         .menu-btn {
-            @media (min-width: 650px) {
+            @include media-min($tablet-m) {
                 display: none;
             }
             position: relative;
@@ -89,11 +121,11 @@
                 box-shadow: none;
                 &::before {
                     transform: rotate(45deg) translate(16px, -16px);
-                    background: $background;
+                    background: $text-scale2;
                 }
                 &::after {
                     transform: rotate(-45deg) translate(16px, 16px);
-                    background: $background;
+                    background: $text-scale2;
                 }
             }
 
@@ -124,23 +156,5 @@
                 }
             }
         }
-    }
-}
-
-@keyframes fromTheLeft {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes opacity {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 100%;
     }
 }

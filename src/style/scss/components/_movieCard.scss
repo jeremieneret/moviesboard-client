@@ -29,11 +29,13 @@
                 border-radius: 20px 0 0 0;
             }
         }
-        h1.montserrat {
+        h1.small-title {
             margin: 0;
+            text-align: start;
+            line-height: 90%;
         }
         .text {
-            padding: 16px;
+            padding: 24px 32px;
             @include flexDirJust(column, space-between);
             .description {
                 overflow: hidden;

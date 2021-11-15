@@ -12,6 +12,9 @@ h1 {
         font-family: $montserrat;
         text-transform: uppercase;
         font-weight: normal;
+        @media (max-width: 650px) {
+            font-size: 5vw;
+        }
     }
 
     &.logo {
@@ -36,6 +39,13 @@ h1 {
 
 h1.title {
     margin: 3vh 0 5vh 0;
+    text-align: center;
+}
+
+h2 {
+    @media (max-width: 650px) {
+        font-size: 4vw;
+    }
 }
 
 nav li {
