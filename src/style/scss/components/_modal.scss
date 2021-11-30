@@ -1,0 +1,46 @@
+@use "../tools/" as *;
+
+main {
+    position: relative;
+}
+
+.modal {
+    &.open {
+        display: block;
+    }
+}
+
+.closed {
+    display: none;
+}
+
+.modal__ctnr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba($color: #000000, $alpha: 0.8);
+    z-index: 3;
+    width: 100vw;
+    height: 100vh;
+    @include flexJustAlign(center, center);
+
+    .modal__content {
+        width: 30vw;
+        padding: 24px 32px;
+        background: rgba($color: #ffffff, $alpha: 0.2);
+        border-radius: 20px;
+
+        h3 {
+            margin-bottom: 24px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        button {
+            margin-top: 24px;
+        }
+    }
+}

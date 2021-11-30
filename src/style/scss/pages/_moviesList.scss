@@ -1,0 +1,12 @@
+@use '../tools/' as *;
+
+.movie-list {
+    padding: 3% 5%;
+    .movie-card-and-btns__ctnr {
+        width: 100%;
+        @include flexJust(space-between);
+        @media (max-width: 650px) {
+            flex-direction: column;
+        }
+    }
+}

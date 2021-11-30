@@ -11,9 +11,9 @@ body {
     background: linear-gradient(270deg, $background, $primary-dark);
     background-size: 400% 400%;
 
-    -webkit-animation: AnimationName 30s ease infinite;
-    -moz-animation: AnimationName 30s ease infinite;
-    animation: AnimationName 30s ease infinite;
+    -webkit-animation: AnimatedBackgroundColor 30s ease infinite;
+    -moz-animation: AnimatedBackgroundColor 30s ease infinite;
+    animation: AnimatedBackgroundColor 30s ease infinite;
     color: $text-scale;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -87,14 +87,4 @@ br.display {
     border-radius: 15px 15px 0 0;
 }
 
-@keyframes AnimationName {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
+

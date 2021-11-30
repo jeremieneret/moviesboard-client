@@ -1,75 +1,68 @@
 @use "../tools/" as *;
 
-.movie-card-and-btns_ctnr {
-    width: 100%;
-    @include flexJust(space-between);
+.movie-card,
+.btns_ctnr {
+    height: 200px;
+}
+.movie-card {
+    cursor: pointer;
+    display: flex;
+    background: rgba($color: black, $alpha: 0.05);
+    border-radius: 20px;
+    width: 90%;
+    margin-bottom: 32px;
     @media (max-width: 650px) {
-        flex-direction: column;
+        border-radius: 20px 20px 0 0;
+        width: 100%;
+        margin: 0;
     }
-    .movie-card,
-    .btns_ctnr {
-        height: 200px;
-    }
-    .movie-card {
-        cursor: pointer;
-        display: flex;
-        background: rgba($color: black, $alpha: 0.05);
-        border-radius: 20px;
-        width: 90%;
-        margin-bottom: 32px;
+    img {
+        height: 100%;
+        border-radius: 20px 0 0 20px;
         @media (max-width: 650px) {
-            border-radius: 20px 20px 0 0;
-            width: 100%;
-            margin: 0;
+            border-radius: 20px 0 0 0;
         }
-        img {
-            height: 100%;
-            border-radius: 20px 0 0 20px;
-            @media (max-width: 650px) {
-                border-radius: 20px 0 0 0;
-            }
-        }
-        h1.small-title {
-            margin: 0;
-            text-align: start;
-            line-height: 90%;
-        }
-        .text {
-            padding: 24px 32px;
-            @include flexDirJust(column, space-between);
-            .description {
-                overflow: hidden;
-                text-overflow: Ellipsis;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 4;
-                @media (max-width: 550px) {
-                -webkit-line-clamp: 3;                   
-                }
+    }
+    h1.small-title {
+        margin: 0;
+        text-align: start;
+        line-height: 90%;
+    }
+    .text {
+        padding: 24px 32px;
+        @include flexDirJust(column, space-between);
+        .description {
+            overflow: hidden;
+            text-overflow: Ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            @media (max-width: 550px) {
+                -webkit-line-clamp: 3;
             }
         }
     }
-    .btns_ctnr {
-        @include flexDirJust(column, space-around);
+}
+.btns_ctnr {
+    @include flexDirJust(column, space-around);
+    button.movie-card-btn {
+        width: 70px;
+        height: 70px;
+        padding: 0;
+        font-size: 12px;
+    }
+    @media (max-width: 650px) {
+        @include flexDirJust(row, space-between);
+        height: 70px;
         button.movie-card-btn {
-            width: 70px;
-            height: 70px;
-            padding: 0;
-            font-size: 12px;
-        }
-        @media (max-width: 650px) {
-            @include flexDirJust(row, space-between);
-            height: 70px;
-            button.movie-card-btn {
-                width: 50%;
-                height: 50px;
-                margin: 0;
-                &:nth-of-type(1) {
-                    border-radius: 0 0 0 20px;
-                }
-                &:nth-of-type(2) {
-                    border-radius: 0 0 20px 0;
-                }
+            width: 50%;
+            height: 50px;
+            margin: 0;
+            &:nth-of-type(1) {
+                border-radius: 0 0 0 20px;
+            }
+            &:nth-of-type(2) {
+                border-radius: 0 0 20px 0;
             }
         }
     }

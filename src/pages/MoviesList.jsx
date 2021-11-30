@@ -2,10 +2,14 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import React, { useState, useEffect } from 'react'
 
+import Modal from '../components/Modal';
 import MovieCard from '../components/MovieCard';
 
 const MoviesList = () => {
     const [data, setData] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [modalDisplay, setModalDisplay] = useState('closed')
+    const [selectedMovie, setSelectedMovie] = useState(null)
     const history = useHistory();
 
     useEffect(() => {
@@ -18,8 +22,16 @@ const MoviesList = () => {
         }
         fetchData();
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    const openModal = () => {
+        if (!isModalOpen) {
+            setIsModalOpen(true);
+            setModalDisplay('modal open')
+        }
+    }
+
 
     return (
         <div className='movie-list'>
@@ -28,24 +40,50 @@ const MoviesList = () => {
                 <ul>
                     {data?.map((movie, i) => {
                         return (
-                            <li
-                                key={i}
-                                onClick={() => { history.push(`/movie-details/${movie.id}`) }}
-                            >
-                                <MovieCard
-                                    movie={{
-                                        i: movie.i,
-                                        id: movie.id,
-                                        title: movie.title,
-                                        poster: movie.poster,
-                                        release_date: movie.release_date,
-                                        description: movie.description
-                                    }}
-                                ></MovieCard>
-                            </li>
+                            <div className='movie-card-and-btns__ctnr'>
+                                <li
+                                    key={i}
+                                    onClick={() => { history.push(`/movie-details/${movie.id}`) }}
+                                >
+                                    <MovieCard
+                                        movie={{
+                                            i: movie.i,
+                                            id: movie.id,
+                                            title: movie.title,
+                                            poster: movie.poster,
+                                            release_date: movie.release_date,
+                                            description: movie.description
+                                        }}
+                                    ></MovieCard>
+                                </li>
+                                <div className="btns_ctnr">
+                                    <button className='movie-card-btn' onClick={() => { setSelectedMovie(movie); openModal() }}>delete</button>
+                                    <button className='movie-card-btn'>edit</button>
+                                </div>
+
+                            </div>
+
+
                         )
                     })}
+
                 </ul>}
+            {data && selectedMovie &&
+
+                <div
+                    className={modalDisplay}
+                >
+                    <Modal
+                        movie={{
+                            i: selectedMovie.i,
+                            id: selectedMovie.id,
+                            poster: selectedMovie.poster
+                        }} />
+                </div>
+
+            }
+
+
         </div>
     )
 }
